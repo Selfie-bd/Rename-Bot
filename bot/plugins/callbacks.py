@@ -46,7 +46,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
             await cb.message.edit("Okay!\n"
                                   "Now I will apply this thumbnail to next uploads.",
                                   reply_markup=types.InlineKeyboardMarkup(
-                                      [[types.InlineKeyboardButton("Show Settings",
+                                      [[types.InlineKeyboardButton("⚙️ Settings ⚙️",
                                                                    callback_data="showSettings")]]
                                   ))
     elif cb.data == "setCustomCaption":
@@ -64,7 +64,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
         await db.set_caption(cb.from_user.id, user_input_msg.text.markdown)
         await cb.message.edit("Custom Caption Added Successfully!",
                               reply_markup=types.InlineKeyboardMarkup(
-                                  [[types.InlineKeyboardButton("Show Settings",
+                                  [[types.InlineKeyboardButton("⚙️ Settings ⚙️",
                                                                callback_data="showSettings")]]
                               ))
     elif cb.data == "triggerApplyCaption":
@@ -113,7 +113,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=types.InlineKeyboardMarkup(
-                [[types.InlineKeyboardButton("Close Message", callback_data="closeMessage")]]
+                [[types.InlineKeyboardButton("Close", callback_data="closeMessage")]]
             )
         )
     elif cb.data == "closeMessage":
